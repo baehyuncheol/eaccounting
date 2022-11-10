@@ -1,6 +1,6 @@
 package com.web.eaccounting.front.common;
 
-import com.web.eaccounting.front.login.LoginDto;
+import com.web.eaccounting.front.common.dto.LoginDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,10 @@
-package com.web.eaccounting.front.login;
+package com.web.eaccounting.front.login.service;
 
 
 import com.web.eaccounting.front.common.CookieManager;
 import com.web.eaccounting.front.common.SessionUtil;
+import com.web.eaccounting.front.common.dto.LoginDto;
+import com.web.eaccounting.front.login.mapper.LoginMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j

@@ -5,7 +5,7 @@
 		<div class="login-box">
 			<form action="">
 				<h1 class="login-title">
-					<a href="#">E-Accounting11</a>
+					<a href="#">E-Accounting</a>
 				</h1>
 				<div class="field">
 					<div class="login-item control control--reset">

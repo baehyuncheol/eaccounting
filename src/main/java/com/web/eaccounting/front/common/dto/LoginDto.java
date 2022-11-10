@@ -1,4 +1,4 @@
-package com.web.eaccounting.front.login;
+package com.web.eaccounting.front.common.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,15 +1,11 @@
 package com.web.eaccounting.front;
 
-import com.web.eaccounting.front.login.LoginDto;
-import com.web.eaccounting.front.menu.MenuDto;
-import org.apache.catalina.filters.ExpiresFilter;
+import com.web.eaccounting.front.common.dto.LoginDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class MainController {
