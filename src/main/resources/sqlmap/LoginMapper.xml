@@ -3,15 +3,27 @@
 
 <mapper namespace="com.web.eaccounting.front.login.mapper.LoginMapper">
 
-    <select id="selectEmp" resultType="com.web.eaccounting.front.common.dto">;
-
+    <select id="findByEmplNo" resultType="com.web.eaccounting.front.common.dto.LoginDto">;
+        <![CDATA[
         SELECT
-          UserId,
-          UserName,
-          Empl_No
-        FROM TB_EMP
-        WHERE UserId = #{UserId}
-
+            A.empl_no,
+            A.user_name,
+            B.dept_code,
+            B.dept_name,
+            A.position_code,
+            C.position_name,
+            A.title_code,
+            D.title_name
+        FROM TB_EMP AS A
+            INNER JOIN TB_ORG AS B
+                ON A.dept_code = b.dept_code
+            INNER JOIN TB_POSITION AS C
+                ON A.position_code = C.position_id
+            INNER JOIN TB_TITLE AS D
+                ON A.title_code = D.title_id
+        WHERE A.usage_ind = 'Y'
+        AND A.empl_no = #{emplNo}
+        ]]>
     </select>
 
 </mapper>

@@ -12,4 +12,13 @@ public class LoginDto {
     private String emplNo;
     private String jSessionId;
     private String authorId;
+
+    //부서, 직책, 직급 정보
+    private String deptCode;
+    private String deptName;
+    private String positionCode;
+    private String positionName;
+    private String titleCode;
+    private String titleName;
+    private String email;
 }

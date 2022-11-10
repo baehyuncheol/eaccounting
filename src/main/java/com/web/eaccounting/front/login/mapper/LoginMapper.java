@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Mapper
-@Repository
 public interface LoginMapper {
-    LoginDto selectEmp(String UserId);
+    LoginDto findByEmplNo(String emplNo);
 }

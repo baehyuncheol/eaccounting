@@ -28,7 +28,7 @@ public class LoginService {
 
         String userId = params.get("id");
 
-        LoginDto userInfo = mapper.selectEmp(userId);
+        LoginDto userInfo = mapper.findByEmplNo(userId);
 
         if( userInfo == null) {
             returnMap.put("status", "fail");
