@@ -3,7 +3,7 @@
 
 <mapper namespace="com.web.eaccounting.front.login.mapper.LoginMapper">
 
-    <select id="selectEmp" resultType="com.web.eaccounting.front.common.dto">;
+    <select id="selectEmp" resultType="com.web.eaccounting.front.common.dto.LoginDto">;
 
         SELECT
           UserId,
