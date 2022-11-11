@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.eaccounting.front.menu.mapper.MenuMapper">
+
+    <select id="getMenuList" resultType="com.web.eaccounting.front.common.dto.MenuDto">;
+
+    <![CDATA[
+    with menu_user as
+    (
+        select author_id
+        from tb_menuauth_dept
+        where dept_code = #{deptCode}
+        union
+        select author_id
+        from tb_menuauth_emp
+        where empl_no = #{emplNo}
+    ),
+    menu_lev as
+    (
+        select distinct len(m.menu_fullcode)-len(replace(m.menu_fullcode,'\','')) + 1 as lev , m.menu_id
+        from tb_menu m
+    ),
+    menu_auth as
+    (
+        select m.menu_id
+        from menu_user u
+        inner join tb_menu_auth a on u.author_id = a.author_id
+        inner join tb_menuauth_map am  on a.author_id = am.author_id
+        inner join tb_menu m  on am.menu_id = m.menu_id
+    ),
+    menu_tree as
+    (
+        select distinct l.lev
+          ,m.menu_id
+          ,m.menu_name
+          ,m.menu_id_up
+          ,m.menu_fullcode
+          ,m.menu_url
+          ,m.sort_seq
+          ,case when a.menu_id != '' then 'Y' else 'N' end as author_yn
+        from tb_menu m
+        inner join menu_lev l on m.menu_id = l.menu_id
+        left join menu_auth a on m.menu_id = a.menu_id
+        where m.usage_ind = 'Y'
+    ),
+    menu_list as
+    (
+        select distinct m.lev
+          ,m.menu_id
+          ,m.menu_name
+          ,m.menu_id_up
+          ,m.menu_fullcode
+          ,m.menu_url
+          ,case when m.lev = 1 then
+            (
+                select top(1) b.menu_id from menu_tree b
+                where b.lev > 1
+                and b.menu_fullcode like concat(m.menu_id ,'%')
+                and b.author_yn ='Y'
+                order by b.sort_seq
+            )
+            else null end as sub_author_menu_id
+          ,m.author_yn
+          ,m.sort_seq
+        from menu_tree m
+        where 1 = case when exists(select * from menu_auth)
+            then (case when m.lev < 2 then 1 else 0 end)
+            else (case when m.lev = 1 then 1 else 0 end)
+            end
+    )
+
+    select a.lev
+      ,a.menu_id
+      ,a.menu_name
+      ,a.menu_id_up
+      ,a.menu_fullcode
+      ,a.menu_url
+      ,a.author_yn
+      ,a.sub_author_menu_id
+      ,a.sort_seq
+    from menu_list a
+    where author_yn = 'Y'
+    ORDER BY sort_seq
+    ]]>
+    </select>
+
+    <select id="getLeftSubMenuData" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+    <![CDATA[
+    with menu_user as
+    (
+        select author_id
+        from tb_menuauth_dept
+        where dept_code = #{deptCode}
+        union
+        select author_id
+        from tb_menuauth_emp
+        where empl_no = #{emplNo}
+    ),
+    menu_lev as
+    (
+        select distinct len(m.menu_fullcode)-len(replace(m.menu_fullcode,'\','')) + 1 as lev , m.menu_id
+        from tb_menu m
+    ),
+    menu_auth as
+    (
+        select m.menu_id
+        from menu_user u
+        inner join tb_menu_auth a on u.author_id = a.author_id
+        inner join tb_menuauth_map am  on a.author_id = am.author_id
+        inner join tb_menu m  on am.menu_id = m.menu_id
+    ),
+    menu_tree as
+    (
+        select distinct l.lev
+              ,m.menu_id
+              ,m.menu_name
+              ,m.menu_id_up
+              ,m.menu_fullcode
+              ,m.menu_url
+              ,m.sort_seq
+              ,case when a.menu_id != '' then 'Y' else 'N' end as author_yn
+        from tb_menu m
+            inner join menu_lev l on m.menu_id = l.menu_id
+            left join menu_auth a on m.menu_id = a.menu_id
+        where m.usage_ind = 'Y'
+    ),
+    menu_list as
+    (
+        select distinct m.lev
+              ,m.menu_id
+              ,m.menu_name
+              ,m.menu_id_up
+              ,m.menu_fullcode
+              ,m.menu_url
+              ,case when m.lev = 1 then
+                (
+                    select top(1) b.menu_id from menu_tree b
+                    where b.lev > 1
+                    and b.menu_fullcode like concat(m.menu_id ,'%')
+                    and b.author_yn ='Y'
+                    order by b.sort_seq
+                )
+                else null end as sub_author_menu_id
+              ,m.author_yn
+              ,m.sort_seq
+        from menu_tree m
+        WHERE m.menu_id_up = #{menuId}
+    )
+
+    select a.lev
+          ,a.menu_id
+          ,a.menu_name
+          ,a.menu_id_up
+          ,a.menu_fullcode
+          ,a.menu_url
+          ,a.author_yn
+          ,a.sub_author_menu_id
+          ,a.sort_seq
+    from menu_list a
+    where author_yn = 'Y'
+    ORDER BY sort_seq
+    ]]>
+    </select>
+</mapper>

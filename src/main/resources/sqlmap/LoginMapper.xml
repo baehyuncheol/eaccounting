@@ -5,6 +5,17 @@
 
     <select id="findByEmplNo" resultType="com.web.eaccounting.front.common.dto.LoginDto">;
         <![CDATA[
+
+        with menu_user as
+        (
+            select author_id
+            from tb_menuauth_dept
+            where dept_code = (SELECT dept_code FROM tb_emp z WHERE z.empl_no = #{emplNo} AND usage_ind = 'Y')
+            union
+            select author_id
+            from tb_menuauth_emp
+            where empl_no = #{emplNo}
+        )
         SELECT
             A.empl_no,
             A.user_name,
@@ -13,7 +24,8 @@
             A.position_code,
             C.position_name,
             A.title_code,
-            D.title_name
+            D.title_name,
+            ( SELECT min(author_id) FROM menu_user) author_id
         FROM TB_EMP AS A
             INNER JOIN TB_ORG AS B
                 ON A.dept_code = b.dept_code

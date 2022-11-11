@@ -49,8 +49,15 @@ public class LoginService {
         LoginDto loginVo = SessionUtil.getUserInfo(httpSvltReq);;
         loginVo.setEmplNo(userId);
         loginVo.setJSessionId(jSession);
+        loginVo.setDeptCode(userInfo.getDeptCode());
+        loginVo.setDeptName(userInfo.getDeptName());
         loginVo.setUserName(userInfo.getUserName());
-        loginVo.setAuthorId("1");
+        loginVo.setPositionName(userInfo.getPositionName());
+        loginVo.setPositionCode(userInfo.getPositionCode());
+        loginVo.setTitleCode(userInfo.getTitleCode());
+        loginVo.setTitleName(userInfo.getTitleName());
+        loginVo.setAuthorId(userInfo.getAuthorId());
+
         adminInfoSetSessionAttr(loginVo, httpSvltReq);
 
         String userPw = (String)params.get("password");

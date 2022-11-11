@@ -16,8 +16,13 @@ public class LoginDto extends AtomObject {
 
     private String userID;
     private String userName;
-    private LocalDateTime lastLoginTime;
     private String emplNo;
+    private String deptCode;
+    private String deptName;
+    private String positionCode;
+    private String positionName;
+    private String titleCode;
+    private String titleName;
     private String jSessionId;
     private String authorId;
     private LocalDateTime updateDatetime;

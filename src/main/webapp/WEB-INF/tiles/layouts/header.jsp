@@ -27,8 +27,13 @@
     </p>
     <c:if test="${!empty(SESSION_USERINFO.userName) && (SESSION_USERINFO.authorId eq '1' || SESSION_USERINFO.authorId eq '2' || SESSION_USERINFO.authorId eq '9')}">
     <p class="level-item">
-       <a href="#" onclick="javascript:window.open('/taxbillPopup','taxWindow', 'scrollbars=no,width=1600,height=1000,status=no,resizable=no');" class="etc-btn etc-btn--pop">세금계산서</a>
+       <a href="#" onclick="javascript:window.open('/taxbillPopup','taxWindow', 'scrollbars=no,width=1600,height=1000,status=no,resizable=no');" class="etc-btn etc-btn--monitor">세금계산서</a>
     </p>
+    </c:if>
+    <c:if test="${!empty(SESSION_USERINFO.userName) && (SESSION_USERINFO.authorId eq '1' || SESSION_USERINFO.authorId eq '2' || SESSION_USERINFO.authorId eq '9')}">
+      <p class="level-item">
+        <a href="/admin/setting" class="etc-btn etc-btn--config">환경설정</a>
+      </p>
     </c:if>
   </div>
 </div>
