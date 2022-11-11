@@ -25,7 +25,7 @@ public class LoginService {
     private final LoginMapper mapper;
 
     @Autowired
-    public LoginService(LoginMapper  mapper) {
+    public LoginService(LoginMapper mapper) {
         //this.loginRepository = loginRepository;
         this.mapper = mapper;
     }

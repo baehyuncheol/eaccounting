@@ -47,7 +47,7 @@ public class DataSourceMssql {
         sessionFactoryBean.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/sqlmap/*.xml"));
-        //sessionFactoryBean.setConfigLocation(resolver.getResource("classpath:/sqlmap/sqlmap-config.xml"));
+        sessionFactoryBean.setConfigLocation(resolver.getResource("classpath:sqlmap-config.xml"));
         return sessionFactoryBean.getObject();
     }
 
