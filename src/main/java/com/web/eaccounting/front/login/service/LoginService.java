@@ -5,9 +5,11 @@ import com.web.eaccounting.front.common.CookieManager;
 import com.web.eaccounting.front.common.SessionUtil;
 import com.web.eaccounting.front.common.dto.LoginDto;
 import com.web.eaccounting.front.login.mapper.LoginMapper;
+import com.web.eaccounting.front.login.repository.LoginRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +18,17 @@ import java.util.Map;
 
 @Slf4j
 @Service
+@Transactional
 public class LoginService {
 
+   // private final LoginRepository loginRepository;
+    private final LoginMapper mapper;
+
     @Autowired
-    public LoginMapper mapper;
+    public LoginService(LoginMapper  mapper) {
+        //this.loginRepository = loginRepository;
+        this.mapper = mapper;
+    }
 
     public Map<String, Object> loginUser(Map<String, String> params, HttpServletRequest httpSvltReq, HttpServletResponse httpSvltRes) throws Exception {
         log.debug("######################################################################123123");

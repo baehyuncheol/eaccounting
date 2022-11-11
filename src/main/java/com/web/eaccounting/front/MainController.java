@@ -30,7 +30,7 @@ public class MainController {
         }
 
         //세션에 있는 값을 사용한다.
-        String deptCode = loginVo.getUserID();
+        String deptCode = loginVo.getUserName();
         String emplNo = loginVo.getEmplNo();
 
         //List<MenuDto> mainList = payDocService.getBodyMenuData(emplNo, deptCode);
