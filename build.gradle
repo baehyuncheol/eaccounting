@@ -14,9 +14,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'org.projectlombok:lombok'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'javax.servlet:jstl'
 	//타일즈 적용
@@ -30,6 +34,8 @@ dependencies {
 	//MSSQL 연결
 	implementation 'com.microsoft.sqlserver:mssql-jdbc'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
+
+
 }
 
 tasks.named('test') {
