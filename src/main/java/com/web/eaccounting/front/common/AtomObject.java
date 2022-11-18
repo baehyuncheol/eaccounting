@@ -1,6 +1,8 @@
 package com.web.eaccounting.front.common;
 
 
+import com.web.eaccounting.core.utils.ModelMapperUtils;
+
 public abstract class AtomObject {
     public abstract <D> AtomObject of(AtomObject paramAtomObject);
 

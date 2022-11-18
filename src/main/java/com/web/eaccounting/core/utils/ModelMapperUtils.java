@@ -1,4 +1,4 @@
-package com.web.eaccounting.front.common;
+package com.web.eaccounting.core.utils;
 
 import org.modelmapper.ModelMapper;
 
