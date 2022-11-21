@@ -14,16 +14,16 @@ import java.time.LocalDateTime;
 @Setter
 @MappedSuperclass
 public abstract class BaseEntity extends AtomObject {
-    @Column(updatable = false, length = 10)
-    private String createUser;
+    @Column(updatable = false, length = 32)
+    private String insertId;
 
     @Column(updatable = false)
-    private LocalDateTime createDatetime;
+    private LocalDateTime insertDate;
 
-    @Column(length = 10)
-    private String updateUser;
+    @Column(length = 32)
+    private String updateId;
 
-    private LocalDateTime updateDatetime;
+    private LocalDateTime updateDate;
 
     public abstract void update(AtomObject paramAtomObject);
 

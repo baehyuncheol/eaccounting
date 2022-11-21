@@ -46,7 +46,7 @@ public class ApprovalDocController {
     }
 
     //작성중 문서
-    /*
+
     @GetMapping("/writing")
     public ModelAndView writingDocView(ModelAndView modelAndView, HttpServletRequest req) {
         List<CodeEntity> codeDepthOneList = payDocService.getCommonCode("1412");
@@ -75,5 +75,5 @@ public class ApprovalDocController {
 
         return modelAndView;
     }
-*/
+
 }

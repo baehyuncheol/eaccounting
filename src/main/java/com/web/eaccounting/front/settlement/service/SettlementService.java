@@ -96,10 +96,10 @@ public class SettlementService{
         appcEntity.setPositionName(appc.get("positionName").toString());
         appcEntity.setTotalAmt(totalAmt);
         appcEntity.setPaydocCreateDate(LocalDateTime.now());
-        appcEntity.setCreateUser(loginId);
-        appcEntity.setCreateDatetime(LocalDateTime.now());
-        appcEntity.setUpdateUser(loginId);
-        appcEntity.setUpdateDatetime(LocalDateTime.now());
+        appcEntity.setInsertId(loginId);
+        appcEntity.setInsertDate(LocalDateTime.now());
+        appcEntity.setUpdateId(loginId);
+        appcEntity.setUpdateDate(LocalDateTime.now());
 
         if("S".equals(flag)) {
             appcEntity.setApprvReqTime(LocalDateTime.now());
@@ -124,10 +124,10 @@ public class SettlementService{
             appcHdJEntity.setBudgetBalance(new BigDecimal(map.get("balance")==null? "0" : map.get("balance").toString()));
             appcHdJEntity.setBudgetCode(map.get("budgetCode").toString());
             appcHdJEntity.setSlipPostingDate(StringUtil.getDeleteChar(appc.get("slipPostingDate").toString(), "-"));
-            appcHdJEntity.setCreateUser(loginId);
-            appcHdJEntity.setCreateDatetime(LocalDateTime.now());
-            appcHdJEntity.setUpdateUser(loginId);
-            appcHdJEntity.setUpdateDatetime(LocalDateTime.now());
+            appcHdJEntity.setInsertId(loginId);
+            appcHdJEntity.setInsertDate(LocalDateTime.now());
+            appcHdJEntity.setUpdateId(loginId);
+            appcHdJEntity.setUpdateDate(LocalDateTime.now());
 
             settlementTbAppcHdJRepository.save(appcHdJEntity);
 
@@ -144,10 +144,10 @@ public class SettlementService{
             appcLineitemJEntityH.setAcctCode("2121120"); //미지급금:법인개별카드(2121120)
             appcLineitemJEntityH.setSlipCurrencyAmt(new BigDecimal(map.get("requestamt")==null? "0" : map.get("requestamt").toString()));
             appcLineitemJEntityH.setSlipCurrencyTax(new BigDecimal(map.get("vat1")==null? "0" : map.get("vat1").toString()));
-            appcLineitemJEntityH.setCreateUser(loginId);
-            appcLineitemJEntityH.setCreateDatetime(LocalDateTime.now());
-            appcLineitemJEntityH.setUpdateUser(loginId);
-            appcLineitemJEntityH.setUpdateDatetime(LocalDateTime.now());
+            appcLineitemJEntityH.setInsertId(loginId);
+            appcLineitemJEntityH.setInsertDate(LocalDateTime.now());
+            appcLineitemJEntityH.setUpdateId(loginId);
+            appcLineitemJEntityH.setUpdateDate(LocalDateTime.now());
 
             settlementTbAppcLineItemJRepository.save(appcLineitemJEntityH);
 
@@ -163,10 +163,10 @@ public class SettlementService{
             appcLineitemJEntityS.setAcctCode(map.get("acctCode").toString());
             appcLineitemJEntityS.setSlipCurrencyAmt(new BigDecimal(map.get("requestamt")==null? "0" : map.get("requestamt").toString()));
             appcLineitemJEntityS.setSlipCurrencyTax(new BigDecimal(map.get("vat1")==null? "0" : map.get("vat1").toString()));
-            appcLineitemJEntityS.setCreateUser(loginId);
-            appcLineitemJEntityS.setCreateDatetime(LocalDateTime.now());
-            appcLineitemJEntityS.setUpdateUser(loginId);
-            appcLineitemJEntityS.setUpdateDatetime(LocalDateTime.now());
+            appcLineitemJEntityS.setInsertId(loginId);
+            appcLineitemJEntityS.setInsertDate(LocalDateTime.now());
+            appcLineitemJEntityS.setUpdateId(loginId);
+            appcLineitemJEntityS.setUpdateDate(LocalDateTime.now());
 
             settlementTbAppcLineItemJRepository.save(appcLineitemJEntityS);
 
@@ -211,10 +211,10 @@ public class SettlementService{
             //expenseEntity.setApprSeq();
             expenseEntity.setBankCd(map.get("trAcq").toString());
             expenseEntity.setCollNo(map.get("collNo").toString());
-            expenseEntity.setCreateUser(loginId);
-            expenseEntity.setCreateDatetime(LocalDateTime.now());
-            expenseEntity.setUpdateUser(loginId);
-            expenseEntity.setUpdateDatetime(LocalDateTime.now());
+            expenseEntity.setInsertId(loginId);
+            expenseEntity.setInsertDate(LocalDateTime.now());
+            expenseEntity.setUpdateId(loginId);
+            expenseEntity.setUpdateDate(LocalDateTime.now());
 
             settlementTbExpenseRepository.save(expenseEntity);
 
