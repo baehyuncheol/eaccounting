@@ -162,4 +162,40 @@
     ORDER BY sort_seq
     ]]>
     </select>
+
+    <select id="selectByMenu" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+        /*SELECT '000' AS menu_id
+        , '메뉴' AS menu_name
+        , '' AS menu_id_up
+        , 1 AS sort_seq
+        UNION ALL*/
+        SELECT menu_id
+             , menu_name as text
+             , menu_name
+             , menu_id_up
+             , sort_seq
+          FROM tb_menu
+         ORDER BY sort_seq;
+
+    </select>
+
+    <select id="selectMenus" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+      SELECT a.menu_id
+           , a.menu_name
+           , a.menu_id_up
+           , b.menu_name AS menu_id_up_name
+           , a.menu_fullcode
+           , CAST(len(a.menu_fullcode)-len(replace(a.menu_fullcode,'\','')) + 1 AS CHAR(100)) AS menu_level
+           , a.menu_url
+           , a.sort_seq
+           , a.usage_ind
+           , a.create_user
+           , a.create_datetime
+           , a.update_user
+           , a.update_datetime
+        FROM tb_menu a
+             LEFT OUTER JOIN tb_menu b
+             ON a.menu_id_up = b.menu_id
+       ORDER BY a.sort_seq
+    </select>
 </mapper>

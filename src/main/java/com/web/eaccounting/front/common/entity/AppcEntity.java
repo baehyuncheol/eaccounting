@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 
 })
 @DynamicUpdate
-public class AppcEntity extends BaseEntity{
+public class AppcEntity extends BaseEntity {
     @Id
     @Column(length = 15)
     private String paydocNo;
@@ -70,7 +70,7 @@ public class AppcEntity extends BaseEntity{
     private LocalDateTime apprvReqTime;
     private LocalDateTime apprvCompleteTime;
 
-    @Column(length=8000)
+    @Column(length = 8000)
     private String apprvMessage;
 
     @Column(length = 1000)
@@ -98,94 +98,13 @@ public class AppcEntity extends BaseEntity{
     @Column(length = 4)
     private String office;
 
-    @Column(length = 20)
-    private String addtionalStepCode;
-
-    @Column(length = 11)
-    private String paydocNoMinus;
-
-    @Column(length = 8)
-    private String sendDateEmail;
-
-    @Column(length = 32)
-    private String insertId;
-
-    private LocalDateTime insertDate;
-
-    private int lastAppSetSeq;
-
-    @Column(length = 8)
-    private String adjSdate;
-
-    @Column(length = 8)
-    private String adjEdate;
-
-    @Column(length = 10)
-    private String contSeq;
-
-    @Column(length = 20)
-    private String contNo;
-
-    @Column(length = 500)
-    private String contName;
-
-    @Column(length = 8)
-    private String contDt;
-
-    private BigDecimal contAmt;
-
-    @Column(length = 32)
-    private String objAcctNo;
-
-    @Column(length = 1)
-    private String slipStatus;
-
-    @Column(length = 20)
-    private String epDocid;
-
     @Override
-    public AppcEntity of(AtomObject source) {
-        return super.of(source, this.getClass());
+    public <D> AtomObject of(AtomObject paramAtomObject) {
+        return null;
     }
 
     @Override
-    public void update(AtomObject source) {
-        AppcDto appcDto = (AppcDto)source;
-        this.setTransPatternCode(appcDto.getTransPatternCode());
-        this.setDocType(appcDto.getDocType());
-        this.setApprvStepApplyMethod(appcDto.getApprvStepApplyMethod());
-        this.setApprvStatus(appcDto.getApprvStatus());
-        this.setApprvTitle(appcDto.getApprvTitle());
-        this.setApprvReqOpn(appcDto.getApprvReqOpn());
-        this.setEmplNo(appcDto.getEmplNo());
-        this.setDeptCode(appcDto.getDeptCode());
-        this.setPositionName(appcDto.getPositionName());
-        this.setDeptName(appcDto.getDeptName());
-        this.setEmail(appcDto.getEmail());
-        this.setCoCode(appcDto.getCoCode());
-        this.setAcctYear(appcDto.getAcctYear());
-        this.setPaydocCreateDate(appcDto.getPaydocCreateDate());
-        this.setApprvReqTime(appcDto.getApprvReqTime());
-        this.setApprvCompleteTime(appcDto.getApprvCompleteTime());
-        this.setApprvFlowResult(appcDto.getApprvFlowResult());
-        this.setApprvStepCode(appcDto.getApprvStepCode());
-        this.setPurchaseCode(appcDto.getPurchaseCode());
-        this.setPurchaseName(appcDto.getPurchaseName());
-        this.setTotalAmt(appcDto.getTotalAmt());
-        this.setPaydocNoRefund(appcDto.getPaydocNoRefund());
-        this.setTransCurrency(appcDto.getTransCurrency());
-        this.setOffice(appcDto.getOffice());
-        this.setAddtionalStepCode(appcDto.getAddtionalStepCode());
-        this.setPaydocNoMinus(appcDto.getPaydocNoMinus());
-        this.setSendDateEmail(appcDto.getSendDateEmail());
-        this.setLastAppSetSeq(appcDto.getLastAppSetSeq());
-        this.setAdjSdate(appcDto.getAdjSdate());;
-        this.setAdjEdate(appcDto.getAdjEdate());
-        this.setContSeq(appcDto.getContSeq());
-        this.setContNo(appcDto.getContNo());
-        this.setContName(appcDto.getContName());
-        this.setContDt(appcDto.getContDt());
-        this.setObjAcctNo(appcDto.getObjAcctNo());
-        this.setEpDocid(appcDto.getEpDocid());
+    public void update(AtomObject paramAtomObject) {
+
     }
 }

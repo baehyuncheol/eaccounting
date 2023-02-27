@@ -10,4 +10,5 @@
     <typeAliases>
         <typeAlias alias="camelCaseMap" type="com.web.eaccounting.core.mybatis.type.CamelCaseMap" />
     </typeAliases>
+
 </configuration>

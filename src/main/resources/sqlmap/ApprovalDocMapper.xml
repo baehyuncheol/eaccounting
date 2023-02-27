@@ -72,17 +72,17 @@
             </if>
         </where>
      -->   ) AS a
-       <!-- <choose>
-            <when test="sortColumn != null and sortColumn != ''">
-                ORDER BY ${sortColumn} ${sortDirection}
-            </when>
-            <otherwise>
-                ORDER BY a.full_paydoc_create_date DESC, a.paydoc_no DESC, a.apprv_status
-            </otherwise>
-        </choose>
-        <if test='perPage > 0'>
-            LIMIT #{page}, #{perPage}
-        </if>-->
+        <!-- <choose>
+             <when test="sortColumn != null and sortColumn != ''">
+                 ORDER BY ${sortColumn} ${sortDirection}
+             </when>
+             <otherwise>
+                 ORDER BY a.full_paydoc_create_date DESC, a.paydoc_no DESC, a.apprv_status
+             </otherwise>
+         </choose>
+         <if test='perPage > 0'>
+             LIMIT #{page}, #{perPage}
+         </if>-->
     </select>
 
     <select id="getApprovalDataCount" resultType="Integer">
@@ -96,43 +96,43 @@
         INNER JOIN tb_emp c
         ON a.empl_no = c.empl_no
         ]]>
-      <!--  <where>
-            a.apprv_status IN (#{apprvStatus}, #{apprvStatus2})
-            AND c.usage_ind  = 'Y'
-            <if test= 'emplNo != null and emplNo != "" '>
-                AND a.empl_no = #{emplNo}
-            </if>
-            <choose>
-                <when test= 'apprvStatus == "1A" and apprvStatus2 == "IH" '>
-                    <if test= 'searchDate == "paydocCreateDate"'>
-                        AND date_format(a.paydoc_create_date, '%Y-%m-%d') BETWEEN #{startDate} AND #{endDate}
-                    </if>
-                </when>
-                <otherwise>
-                    <if test= 'searchDate == "paydocCreateDate"'>
-                        AND date_format(a.apprv_req_time, '%Y-%m-%d') BETWEEN #{startDate} AND #{endDate}
-                    </if>
-                </otherwise>
-            </choose>
-            <if test= 'searchName == "apprvTitle"'>
-                AND a.apprv_title LIKE CONCAT('%',#{apprvTitle},'%')
-            </if>
-            <if test= 'searchName == "purchaseName"'>
-                AND ifnull(a.purchase_name,'') LIKE CONCAT('%',#{purchaseName},'%')
-            </if>
-            <if test= 'searchName == "objAcctNo"'>
-                AND a.obj_acct_no LIKE CONCAT('%',#{apprvTitle},'%')
-            </if>
-            <if test= 'depthOne != null and depthOne != "" '>
-                AND a.trans_pattern_code  LIKE CONCAT('10',#{depthOne},'%')
-            </if>
-            <if test= 'depthTwo != null and depthTwo != "" '>
-                AND a.trans_pattern_code  LIKE CONCAT('10',#{depthTwo},'%')
-            </if>
-            <if test= 'depthThree != null and depthThree != "" '>
-                AND a.trans_pattern_code  LIKE CONCAT('10',#{depthThree})
-            </if>
-        </where>-->
+        <!--  <where>
+              a.apprv_status IN (#{apprvStatus}, #{apprvStatus2})
+              AND c.usage_ind  = 'Y'
+              <if test= 'emplNo != null and emplNo != "" '>
+                  AND a.empl_no = #{emplNo}
+              </if>
+              <choose>
+                  <when test= 'apprvStatus == "1A" and apprvStatus2 == "IH" '>
+                      <if test= 'searchDate == "paydocCreateDate"'>
+                          AND date_format(a.paydoc_create_date, '%Y-%m-%d') BETWEEN #{startDate} AND #{endDate}
+                      </if>
+                  </when>
+                  <otherwise>
+                      <if test= 'searchDate == "paydocCreateDate"'>
+                          AND date_format(a.apprv_req_time, '%Y-%m-%d') BETWEEN #{startDate} AND #{endDate}
+                      </if>
+                  </otherwise>
+              </choose>
+              <if test= 'searchName == "apprvTitle"'>
+                  AND a.apprv_title LIKE CONCAT('%',#{apprvTitle},'%')
+              </if>
+              <if test= 'searchName == "purchaseName"'>
+                  AND ifnull(a.purchase_name,'') LIKE CONCAT('%',#{purchaseName},'%')
+              </if>
+              <if test= 'searchName == "objAcctNo"'>
+                  AND a.obj_acct_no LIKE CONCAT('%',#{apprvTitle},'%')
+              </if>
+              <if test= 'depthOne != null and depthOne != "" '>
+                  AND a.trans_pattern_code  LIKE CONCAT('10',#{depthOne},'%')
+              </if>
+              <if test= 'depthTwo != null and depthTwo != "" '>
+                  AND a.trans_pattern_code  LIKE CONCAT('10',#{depthTwo},'%')
+              </if>
+              <if test= 'depthThree != null and depthThree != "" '>
+                  AND a.trans_pattern_code  LIKE CONCAT('10',#{depthThree})
+              </if>
+          </where>-->
         ) AS a
     </select>
 
