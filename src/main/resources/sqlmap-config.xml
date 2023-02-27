@@ -7,7 +7,4 @@
         <setting name="callSettersOnNulls" value="true"/>
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
-    <typeAliases>
-        <typeAlias alias="camelCaseMap" type="com.web.eaccounting.core.mybatis.type.CamelCaseMap" />
-    </typeAliases>
 </configuration>
