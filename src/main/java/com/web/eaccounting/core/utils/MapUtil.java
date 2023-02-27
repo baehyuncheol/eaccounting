@@ -1,6 +1,6 @@
-package com.gsitm.eaccounting.core.utils;
+package com.web.eaccounting.core.utils;
 
-import com.gsitm.eaccounting.core.mybatis.type.CamelCaseMap;
+import com.web.eaccounting.core.mybatis.type.CamelCaseMap;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONException;
