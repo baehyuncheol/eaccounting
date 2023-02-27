@@ -1,0 +1,11 @@
+.level {
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: 16px !important;
+    }
+  }
+}

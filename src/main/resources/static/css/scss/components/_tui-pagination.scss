@@ -1,0 +1,45 @@
+.tui-pagination {
+  margin: 24px 0 0 !important;
+
+  .tui-page-btn {
+    width: 26px !important;
+    border: 0 !important;
+    font-weight: 500 !important;
+    color: #8E8E8E !important;
+    background-color: #FFF !important;
+  }
+
+  .tui-prev {
+    margin-right: 20px !important;
+  }
+
+  .tui-next {
+    margin-left: 20px !important;
+  }
+}
+
+.tui-next-is-ellip,
+.tui-prev-is-ellip {
+  display: none !important;
+}
+
+.tui-pagination .tui-first, 
+.tui-pagination .tui-prev, 
+.tui-pagination .tui-next, 
+.tui-pagination .tui-last, 
+.tui-pagination .tui-prev-is-ellip, 
+.tui-pagination .tui-next-is-ellip {
+  border: 1px solid #E6E6E6 !important;
+}
+
+.tui-pagination .tui-first + .tui-prev, 
+.tui-pagination .tui-next + .tui-last {
+  border-left: 0 !important;
+}
+
+.tui-pagination .tui-is-selected, 
+.tui-pagination strong {
+  border-color: #099 !important;
+  color: #FFF !important;
+  background-color: #099 !important;
+}

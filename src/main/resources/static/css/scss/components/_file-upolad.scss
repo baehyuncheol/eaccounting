@@ -1,0 +1,123 @@
+.file-upload {
+  position: relative;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+
+    > p {
+      font-size: 12px;
+      letter-spacing: -0.24px;
+      color: #717171;
+    }
+  }
+
+  &-contents {
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #E6E6E6;
+      font-size: 12px;
+      letter-spacing: -0.24px;
+
+      thead {
+        border-bottom: 1px solid #E6E6E6;
+      }
+
+      th,
+      td {
+        padding: 5px 6px;
+        vertical-align: middle;
+
+        &:first-child {
+          padding: 5px 10px;
+          text-align: center;
+        }
+
+        &:last-child {
+          text-align: center;
+        }
+      }
+
+      th {
+        font-weight: 400;
+        color: #717171
+      }
+
+      td {
+        color: #222;
+      }
+
+      .checkbox {
+        padding-left: 20px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.file-btn {
+  min-width: 62px;
+  height: 28px;
+  padding: 0 17px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  cursor: pointer;
+  outline: none;
+
+  &:not(:last-child) {
+    margin-right: 6px;
+  }
+
+  &.is-primary {
+    border: 1px solid #099;
+    
+    color: #FFF;
+    background-color: #099;
+
+    &:hover {
+      border-color: #338181;
+      background-color: #338181;
+    }
+
+    &:active {
+      border-color: #016262;
+      background-color: #016262;
+    }
+  }
+
+  &.is-dark {
+    border: 1px solid #717171;
+    color: #717171;
+    background-color: #FFF;
+
+    &:hover {
+      background-color: #F7F7F7;
+    }
+
+    &:active {
+      border-color: #585858;
+      color: #3E3E3E;
+      background-color: #EFEFEF;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+  }
+}
+
+.drop-box {
+  position: relative;
+  padding: 36px 0 !important;
+
+  label {
+    color: #CACACA;
+  }
+}

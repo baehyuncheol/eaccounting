@@ -1,0 +1,15 @@
+.contents {
+  position: relative;
+  max-width: 1540px;
+  margin: 30px auto 0;
+
+  &__body {
+    // flex: 1;
+    // margin-left: 40px;
+    min-height: 752px;
+    margin-left: 240px;
+    padding: 28px 40px 32px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(110,110,110,0.2);
+  }
+}

@@ -1,0 +1,353 @@
+.main {
+  &-body {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 240px;
+  }
+
+  &-doc {
+    width: 1056px;
+    margin-bottom: 34px;
+    padding: 32px 30px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(110, 110, 110, 0.2);
+  }
+}
+
+.doc {
+  &-title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.44px;
+    color: #222;
+  }
+
+  &-subtitle {
+    padding: 15px 0;
+
+    a {
+      display: block;
+      position: relative;
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.5;
+      letter-spacing: -0.36px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        width: 10px;
+        height: 10px;
+        transform: translateY(-50%) rotate(45deg);
+        border-top: 1px solid #CACACA;
+        border-right: 1px solid #CACACA;
+      }
+
+      &:hover {
+        &::after {
+          border-color: #222;
+        }
+      }
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  &-box {
+    position: relative;
+    width: 318px;
+    min-height: 166px;
+    border: 1px solid #E6E6E6;
+    border-top: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 318px;
+      height: 4px;
+    }
+
+    &--ing {
+      &::before {
+        background-color: #FF9782;
+      }
+
+      .doc-subtitle {
+        a {
+          color: #E27E5F;
+        }
+      }
+
+      .doc-item {
+        .badge {
+          background-color: #E27E5F;
+        }
+      }
+    }
+
+    &--unresolved {
+      &::before {
+        background-color: #FACA4E;
+      }
+
+      .doc-subtitle {
+        a {
+          color: #EBAC06;
+        }
+      }
+
+      .doc-item {
+        .badge {
+          background-color: #EBAC06;
+        }
+      }
+    }
+
+    &--complete {
+      &::before {
+        background-color: #77D6D6;
+      }
+
+      .doc-subtitle {
+        a {
+          color: #3FB6B6;
+        }
+      }
+
+      .doc-item {
+        .badge {
+          background-color: #3FB6B6;
+        }
+      }
+    }
+  }
+
+  &-list {
+    padding: 0 20px 20px;
+  }
+
+  &-item {
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+
+    a {
+      display: flex;
+    }
+
+    .badge {
+      width: 63px;
+      height: 22px;
+      margin-right: 10px;
+      border-radius: 80px;
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: -0.24px;
+      text-align: center;
+      color: #FFF;
+    }
+
+    &-text {
+      flex: 1;
+      overflow: hidden;
+      font-size: 14px;
+      letter-spacing: -0.28px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 22px;
+    }
+  }
+}
+
+// 검색
+.search {
+  &-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 204px;
+    height: 100%;
+    padding: 24px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(110, 110, 110, 0.2);
+    background-color: #F7F7F7;
+  }
+
+  &-box {
+    .input {
+      height: 40px;
+      padding-right: 40px;
+      font-size: 16px;
+
+      &:focus {
+        border: 0;
+        border-bottom: 1px solid #E6E6E6;
+        box-shadow: 0px 3px 6px rgba(110, 110, 110, 0.2);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      
+    }
+  }
+
+  &-result-list {
+    z-index: 10;
+    // display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px 24px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 3px 6px rgba(110, 110, 110, 0.2);
+    background-color: #FFF;
+
+    li {
+      position: relative;
+
+      a {
+        display: block;
+        overflow: hidden;
+        padding: 7px 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+        letter-spacing: -0.28px;
+        color: #222 !important;
+
+        &:hover {
+          text-decoration: underline;
+
+          + .tooltip {
+            display: block;
+          }
+        }
+      }
+
+      em {
+        font-style: normal;
+        font-weight: 700;
+        color: #099;
+      }
+    }
+  }
+
+  &-list {
+    padding-bottom: 28px;
+  }
+
+  &-item {
+    position: relative;
+
+    a {
+      display: block;
+      overflow: hidden;
+      padding: 7px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      letter-spacing: -0.28px;
+      color: #222 !important;
+
+      &:hover {
+        text-decoration: underline;
+
+        + .tooltip {
+          display: block;
+        }
+      }
+    }
+
+    em {
+      font-style: normal;
+      font-weight: 700;
+      color: #099;
+    }
+  }
+
+  .field {
+    position: relative;
+  }
+}
+
+// 즐겨찾기
+.bookmark {
+  &-head {
+    display: flex;
+    align-items: center;
+    padding-top: 25px;
+
+    h2 {
+      margin-right: 3px;
+      font-weight: 500;
+      font-size: 19px;
+      letter-spacing: -0.38px;
+      line-height: 1.47;
+    }
+
+    span {
+      font-size: 14px;
+      letter-spacing: -0.28px;
+      color: #717171;
+    }
+  }
+
+  &-list {
+    padding-top: 16px;
+  }
+
+  &-item {
+    position: relative; 
+
+    &:not(:first-child) {
+      border-top: 1px solid #E6E6E6;
+    }
+    
+    a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      padding: 12px 0 12px 24px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #717171;
+
+      &:hover {
+        font-weight: 500;
+        color: #222 !important;
+
+        + .tooltip {
+          display: block;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23da1e28;opacity:0;%7D.b,.d%7Bfill:%23099;%7D.c,.d%7Bstroke:none;%7D%3C/style%3E%3C/defs%3E%3Crect class='a' width='20' height='20'/%3E%3Cg class='b' transform='translate(1 1)'%3E%3Cpath class='c' d='M 4.129910469055176 16.05170440673828 L 5.069880962371826 11.17343711853027 C 5.135490894317627 10.83298778533936 5.023190975189209 10.48868751525879 4.769510746002197 10.25240707397461 L 1.124204516410828 6.85721492767334 L 6.089370727539063 6.237147331237793 C 6.430700778961182 6.194537162780762 6.722321033477783 5.983457565307617 6.869441032409668 5.6725172996521 L 8.999825477600098 1.169527411460876 L 8.999910354614258 1.169527411460876 L 11.13056087493896 5.672507286071777 C 11.27768135070801 5.983457565307617 11.56929111480713 6.194537162780762 11.91062068939209 6.237147331237793 L 16.87571334838867 6.856957912445068 L 13.23049068450928 10.25241756439209 C 12.97681140899658 10.48868751525879 12.86451053619385 10.83298778533936 12.93011093139648 11.17341709136963 L 13.87030029296875 16.05153465270996 L 9.479701042175293 13.65137767791748 C 9.333050727844238 13.57118701934814 9.167160987854004 13.5287971496582 9.000000953674316 13.5287971496582 C 8.832840919494629 13.5287971496582 8.666960716247559 13.57118701934814 8.520280838012695 13.65137767791748 L 4.129910469055176 16.05170440673828 Z'/%3E%3Cpath class='d' d='M 9.000000953674316 2.338313102722168 L 7.32140064239502 5.886357307434082 C 7.100730895996094 6.352766990661621 6.663311004638672 6.669377326965332 6.151301383972168 6.733297348022461 L 2.24793815612793 7.22057056427002 L 5.110280990600586 9.886528015136719 C 5.490811347961426 10.24093723297119 5.65925121307373 10.75738716125488 5.560851097106934 11.26805686950684 L 4.82158088684082 15.10369110107422 L 8.280401229858398 13.21267700195313 C 8.500411033630371 13.09237670898438 8.749240875244141 13.0287971496582 9.000000953674316 13.0287971496582 C 9.250750541687012 13.0287971496582 9.499581336975098 13.09237670898438 9.719560623168945 13.2126579284668 L 13.17841148376465 15.10369491577148 L 12.43914031982422 11.26801681518555 C 12.34075164794922 10.75738716125488 12.50919151306152 10.24093723297119 12.88971138000488 9.886537551879883 L 15.7520637512207 7.220569610595703 L 11.84868049621582 6.733297348022461 C 11.33669090270996 6.669377326965332 10.89927101135254 6.352766990661621 10.67859077453613 5.886337280273438 L 9.000000953674316 2.338313102722168 M 9.000000953674316 0.6691570281982422 C 9.180855751037598 0.6691570281982422 9.361710548400879 0.7645473480224609 9.451971054077148 0.9553279876708984 L 11.5825309753418 5.458677291870117 C 11.65569114685059 5.613306999206543 11.80282115936279 5.719807624816895 11.97256088256836 5.740997314453125 L 16.9379711151123 6.360847473144531 C 17.35908126831055 6.413417816162109 17.5273609161377 6.933637619018555 17.21681022644043 7.222877502441406 L 13.57127094268799 10.6182975769043 C 13.44523048400879 10.73568725585938 13.38849067687988 10.90967750549316 13.42108154296875 11.07880783081055 L 14.36132049560547 15.9572172164917 C 14.42438793182373 16.28443908691406 14.16479301452637 16.55307197570801 13.87032890319824 16.55307197570801 C 13.7910327911377 16.55307197570801 13.70924186706543 16.53360557556152 13.63050079345703 16.49055671691895 L 9.239850997924805 14.090087890625 C 9.165121078491211 14.04922771453857 9.082560539245605 14.0287971496582 9 14.0287971496582 C 8.917438507080078 14.0287971496582 8.83487606048584 14.04922771453857 8.760141372680664 14.090087890625 L 4.369490623474121 16.49055671691895 C 4.290775299072266 16.53359413146973 4.208941459655762 16.55307197570801 4.129667282104492 16.55307197570801 C 3.835176467895508 16.55307197570801 3.575599670410156 16.28446578979492 3.638670921325684 15.9572172164917 L 4.578921318054199 11.07880783081055 C 4.61151123046875 10.90967750549316 4.554771423339844 10.73568725585938 4.428730964660645 10.6182975769043 L 0.7831916809082031 7.222877502441406 C 0.4726409912109375 6.933637619018555 0.6409206390380859 6.413417816162109 1.062030792236328 6.360847473144531 L 6.027430534362793 5.740997314453125 C 6.19718074798584 5.719807624816895 6.344310760498047 5.613306999206543 6.417470932006836 5.458677291870117 L 8.548030853271484 0.9553279876708984 C 8.638291358947754 0.7645473480224609 8.819146156311035 0.6691570281982422 9.000000953674316 0.6691570281982422 Z'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+      }
+    }
+  }
+}

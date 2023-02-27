@@ -1,0 +1,33 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &-contents {
+    text-align: center;
+
+    h1 {
+      padding-top: 20px;
+      font-weight: 700;
+      font-size: 32px;
+      letter-spacing: -0.64px;
+      line-height: 1.37;
+
+      em {
+        display: block;
+        font-style: normal;
+        color: #E27E5F;
+      }
+    }
+
+    p {
+      padding: 8px 0 48px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.28px;
+      line-height: 1.57;
+      color: #717171;
+    }
+  }
+}

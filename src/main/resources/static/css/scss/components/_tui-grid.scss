@@ -1,0 +1,245 @@
+.tui-grid-container-wrap {
+  // max-width: 1199px;
+  // max-width: 1356px;
+  // height: 400px;
+}
+
+.tui-grid-container {
+  font-family: Roboto, "Noto Sans KR", sans-serif !important;
+  font-size: 14px !important;
+  background-color: #F8F8F8;
+
+  * {
+    box-sizing: border-box !important;
+  }
+}
+
+.tui-grid-container p, 
+.tui-grid-container input, 
+.tui-grid-container textarea {
+  font-family: Roboto, "Noto Sans KR", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.tui-grid-cell-content input[type='text'], 
+.tui-grid-cell-content input[type='password'] {
+  height: 28px;
+  padding: 0 8px !important;
+  border-radius: 0;
+  border-color: #E6E6E6;
+  box-shadow: none;
+  font-size: 14px;
+  caret-color: #099;
+}
+
+.tui-grid-cell {
+  border-right-width: 1px !important;
+  border-color: #E6E6E6 !important;
+  color: #222;
+  background-color: #FFF !important;
+}
+
+.tui-grid-row-hover .tui-grid-cell {
+  font-weight: 400 !important;
+  background-color: #E2F2F2 !important;
+}
+
+.tui-grid-cell-header {
+  font-weight: 500;
+  background-color: #F8F8F8 !important;
+}
+
+.tui-grid-header-area {
+  border-color: #E6E6E6 !important;
+  background-color: #F8F8F8 !important;
+}
+
+.tui-grid-border-line-top {
+  border-color: #E6E6E6 !important;
+}
+
+.tui-grid-no-scroll-x .tui-grid-border-line-bottom {
+  border-bottom: 0 !important;
+}
+
+.tui-grid-body-area {
+  // height: auto !important;
+  border: 0 !important;
+  // background-color: #E6E6E6 !important;
+}
+
+.tui-grid-rside-area {
+  width: auto !important;
+}
+
+.tui-grid-body-container {
+  width: auto !important;
+}
+
+.tui-grid-table-container {
+  // border-right: 1px solid #E6E6E6;
+  border-right: 1px solid #FFF;
+}
+
+.tui-grid-layer-editing {
+  padding: 0 10px !important;
+}
+
+.custom-input {
+  height: 40px;
+  padding: 0 10px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box;
+  background: #FFF;
+
+  input {
+    width: 100%;
+    height: 28px;
+    padding: 0 8px !important;
+    border-radius: 0;
+    border: 1px solid #E6E6E6;
+    box-shadow: none;
+    font-size: 14px;
+    vertical-align: middle;
+    caret-color: #099;
+    color: #222;
+  
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+  
+    &:focus,
+    &:hover {
+      border-color: #099;
+      box-shadow: none;
+    }
+  
+    &[disabled] {
+      border-color: #E6E6E6;
+      color: #CACACA;
+      background-color: #EFEFEF;
+    }
+  
+    &::placeholder {
+      color: #BFBFBF;
+    }
+  
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  
+    &.is-danger {
+      border-color: #F63811;
+    }
+  }
+
+  &.is-pay {
+    input {
+      text-align: right;
+    }
+  }
+}
+
+.tui-grid-layer-editing {
+  display: flex;
+  align-items: center;
+}
+
+.tui-grid-cell-row-header>span {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+// custom checkbox
+.custom-checkbox-wrap {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+
+  .custom-checkbox {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:%23fff;%7D.a%7Bopacity:0;%7D.b%7Bstroke:rgba(0,0,0,0);stroke-miterlimit:10;%7D.c%7Bfill:%23999;%7D%3C/style%3E%3C/defs%3E%3Cg transform='translate(-101 -333)'%3E%3Crect class='a' width='20' height='20' transform='translate(101 333)'/%3E%3Cpath class='b' d='M0,12.5V0H12.5V12.5Z' transform='translate(104.75 336.75)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM1.25,1.25v12.5h12.5V1.25Z' transform='translate(103.5 335.5)'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 center;
+
+    &:hover,
+    &:focus {
+      color: #333;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:%23fff;%7D.a%7Bopacity:0;%7D.b%7Bstroke:rgba(0,0,0,0);stroke-miterlimit:10;%7D.c%7Bfill:%23099;%7D%3C/style%3E%3C/defs%3E%3Cg transform='translate(-101 -373)'%3E%3Crect class='a' width='20' height='20' transform='translate(101 373)'/%3E%3Cpath class='b' d='M0,12.5V0H12.5V12.5Z' transform='translate(104.75 376.75)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM1.25,1.25v12.5h12.5V1.25Z' transform='translate(103.5 375.5)'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 center;
+    }
+  }
+
+  .hidden-input[type='checkbox'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  
+    &:checked {
+      + .custom-checkbox {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:%23fff;%7D.a%7Bopacity:0;%7D.c%7Bfill:%23099;%7D%3C/style%3E%3C/defs%3E%3Crect class='a' width='20' height='20'/%3E%3Crect class='b' width='12' height='12' transform='translate(4 4)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM4.119,6.875l-.993.938L6.25,10.937l5.625-5.575-.994-.987L6.25,8.968Z' transform='translate(2.5 2.5)'/%3E%3C/svg%3E") no-repeat 0 center;
+      }
+
+      &[disabled] {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:%23fff;%7D.a%7Bopacity:0;%7D.c%7Bfill:%23e6e6e6;%7D%3C/style%3E%3C/defs%3E%3Crect class='a' width='20' height='20'/%3E%3Crect class='b' width='12' height='12' transform='translate(4 4)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM4.119,6.875l-.993.938L6.25,10.937l5.625-5.575-.994-.987L6.25,8.968Z' transform='translate(2.5 2.5)'/%3E%3C/svg%3E") no-repeat 0 center;
+      }
+    }
+
+    &[disabled] {
+      + .custom-checkbox {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23fff;opacity:0;%7D.b%7Bfill:%23efefef;stroke:rgba(0,0,0,0);stroke-miterlimit:10;%7D.c%7Bfill:%23e6e6e6;%7D%3C/style%3E%3C/defs%3E%3Cg transform='translate(-101 -453)'%3E%3Crect class='a' width='20' height='20' transform='translate(101 453)'/%3E%3Cpath class='b' d='M0,12.5V0H12.5V12.5Z' transform='translate(104.75 456.75)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM1.25,1.25v12.5h12.5V1.25Z' transform='translate(103.5 455.5)'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 center;
+      }
+    }
+  }
+}
+
+.tui-grid-cell-disabled {
+  .custom-checkbox {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23fff;opacity:0;%7D.b%7Bfill:%23efefef;stroke:rgba(0,0,0,0);stroke-miterlimit:10;%7D.c%7Bfill:%23e6e6e6;%7D%3C/style%3E%3C/defs%3E%3Cg transform='translate(-101 -453)'%3E%3Crect class='a' width='20' height='20' transform='translate(101 453)'/%3E%3Cpath class='b' d='M0,12.5V0H12.5V12.5Z' transform='translate(104.75 456.75)'/%3E%3Cpath class='c' d='M13.75,15H1.25A1.252,1.252,0,0,1,0,13.75V1.25A1.251,1.251,0,0,1,1.25,0h12.5A1.252,1.252,0,0,1,15,1.25v12.5A1.252,1.252,0,0,1,13.75,15ZM1.25,1.25v12.5h12.5V1.25Z' transform='translate(103.5 455.5)'/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 center;
+  }
+}
+
+.tui-grid-scrollbar-right-top {
+  border: 0 !important;
+  background-color: #F8F8F8;
+}
+
+.tui-grid-scrollbar-left-bottom,
+.tui-grid-scrollbar-right-bottom {
+  display: none;
+}
+
+.tui-grid-scrollbar-frozen-border {
+  border: 0 !important;
+}
+
+.tui-grid-scrollbar-y-inner-border,
+.tui-grid-scrollbar-y-outer-border {
+  width: 0 !important;
+}
+
+.tui-grid-border-line-bottom {
+  border-bottom: 1px solid #FFF !important;
+}
+
+.tui-grid-content-area {
+  border-color: #FFF !important;
+}
+
+.tui-grid-cell-has-input .tui-grid-cell-content {
+  padding: 4px 6px !important;
+}
+
+.tui-select-box-dropdown {
+  max-height: 500px;
+}

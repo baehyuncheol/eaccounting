@@ -1,0 +1,55 @@
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px !important;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -0.56px;
+  line-height: 1.46;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.36px;
+  color: #099;
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.subtitle-explain {
+  margin-left: 6px;
+  font-weight: 400 !important;
+  font-size: 14px;
+  color: #717171;
+}
+
+.modal-tree-title {
+  margin-top: -10px;
+  padding-bottom: 7px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.44px;
+  color: #099;
+}
+
+.modal-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  color: #222;
+
+  &-explain {
+    margin-left: 2px;
+    font-size: 16px;
+    letter-spacing: -0.32px;
+    color: #3E3E3E;
+  }
+}

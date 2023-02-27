@@ -1,0 +1,22 @@
+.breadcrumb {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0 !important;
+
+  li {
+    a {
+      padding: 0 6px;
+      color: #707070;
+
+      &:hover {
+        color: #222;
+      }
+    }
+
+    &.is-active {
+      a {
+        color: #099;
+      }
+    }
+  }
+}

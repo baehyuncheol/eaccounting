@@ -1,0 +1,61 @@
+.textarea {
+  min-height: 68px !important;
+  height: 68px;
+  padding: 4px 8px;
+  border-radius: 0;
+  border-color: #E6E6E6;
+  line-height: 1.42;
+  box-shadow: none;
+  caret-color: #099;
+  resize: none;
+  color: #222;
+
+  &::placeholder {
+    font-size: 14px;
+    color: #BFBFBF;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #099;
+    box-shadow: none;
+  }
+
+  &:read-only {
+    background-color: #F7F7F7;
+
+    &:hover,
+    &:focus {
+      border-color: #E6E6E6;
+    }
+  }
+
+  &[disabled] {
+    border-color: #E6E6E6;
+    color: #CACACA;
+    background-color: #EFEFEF;
+
+    &:hover,
+    &:focus {
+      border-color: #E6E6E6;
+    }
+  }
+
+  &.is-danger {
+    border-color: #F63811;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+
+    + .danger-icon {
+      display: block;
+      bottom: 6px;
+    }
+  }
+
+  &-wrap {
+    position: relative;
+  }
+}

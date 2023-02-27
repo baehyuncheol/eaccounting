@@ -1,0 +1,45 @@
+.control {
+  margin: 0;
+  line-height: 1.42;
+
+  &.is-miniscule {
+    width: 80px;
+  }
+
+  &.is-narrow {
+    width: 160px;
+  }
+
+  &.is-medium {
+    width: 200px;
+  }
+}
+
+.field.has-addons {
+  .control {
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+
+    &.is-expanded {
+      flex: 1;
+    }
+  }
+
+  .datepicker-range {
+    flex: 1;
+    
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+
+    .tui-datepicker-input {
+      flex: 1;
+      width: auto !important;
+    }
+  }
+}

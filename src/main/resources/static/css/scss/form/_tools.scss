@@ -1,0 +1,13 @@
+.field {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &--head {
+    margin-bottom: 20px !important;
+  }
+
+  &.has-addons {
+    align-items: center;
+  }
+}

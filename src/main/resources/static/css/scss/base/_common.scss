@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+  letter-spacing: -0.28px;
+}
+
+.emphasis {
+  display: inline-block;
+  margin-left: 6px;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  vertical-align: top;
+  color: #F63811;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin: -1px 2px 0 0;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-color: #F63811;
+  }
+
+  strong {
+    font-weight: 700;
+    color: #F63811;
+  }
+}
+
+.chain-text {
+  padding: 0 4px;
+}

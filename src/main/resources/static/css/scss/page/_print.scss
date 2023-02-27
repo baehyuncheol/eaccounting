@@ -1,0 +1,195 @@
+.print-wrap {
+  // width: 800px;
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 1cm;
+  margin: 0 auto;
+
+  table {
+    width: 100%;
+  }
+
+  .is-blue {
+    color: #0167B2;
+  }
+
+  .is-red {
+    color: #D2111A;
+  }
+}
+
+.print-table {
+  text-align: center;
+
+  > tbody {
+    > tr > td th,
+    > tr > td td {
+      padding: 6px;
+      font-weight: 400;
+      vertical-align: middle;
+    }
+  }
+}
+
+.print-table__header-wrap {
+  padding: 20px;
+  border: 1px solid #231815;
+  border-bottom: 0;
+}
+
+.print-table__header {
+  // 귀속연도
+  > tbody > tr > td:first-child {
+    table {
+      border: 1px solid #231815;
+    }
+
+    table td:first-child {
+      border-right: 1px solid #231815;
+    }
+  }
+
+  // 체크 타이틀 영역
+  > tbody > tr > td:nth-child(2) {
+    padding-left: 100px;
+    font-size: 18px;
+    text-align: left;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      .print-check {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .print-check__wrap {
+        display: inline-flex;
+        align-items: center;
+
+        > span {
+          position: relative;
+          padding-left: 16px;
+          font-size: 13px;
+
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    li:not(:first-child) {
+      margin-top: 6px;
+    }
+  }
+
+  // 소득자 구분
+  > tbody > tr > td:last-child {
+    table {
+      border: 1px solid #231815;
+    }
+
+    table th {
+      border-bottom: 1px solid #231815;
+      font-weight: 400;
+    }
+
+    table td:first-child {
+        border-right: 1px solid #231815;
+    }
+  }
+}
+
+.print-table__info {
+  border-right: 1px solid #231815;
+
+  &.is-top {
+    border-top: 1px solid #231815; 
+  }
+
+  &.is-bottom {
+    font-size: 12px;
+  }
+
+  th, td {
+    border-left: 1px solid #231815;
+    border-bottom: 1px solid #231815;
+  }
+}
+
+.print-table__footer {
+  padding: 15px;
+  border: 1px solid #231815;
+  border-top: 0;
+  font-size: 13px;
+
+  td {
+    padding: 14px 0 !important;
+  }
+}
+
+.print-table__guide {
+  padding: 15px;
+  border: 1px solid #231815;
+  border-top: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.print-check-wrap {
+  padding: 0 4px;
+}
+
+.print-check {
+  display: inline-block;
+  padding: 0 4px;
+  
+  &::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid #231815;
+    border-width: 0 2px 2px 0;
+    vertical-align: middle;
+    transform: translate(0, -60%) rotate(45deg);
+  }
+}
+
+.print-sign-name {
+  display: inline-block;
+  padding: 0 50px;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  .print-wrap {
+    margin: 0;
+    border: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+
+  .print-table__info.is-bottom,
+  .print-table__footer,
+  .print-table__guide {
+    page-break-inside: avoid;
+  }
+}

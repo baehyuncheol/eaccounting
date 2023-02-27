@@ -1,0 +1,140 @@
+.modal {
+  background-color: rgba(0,0,0,0.6);
+  
+  &-card {
+    box-shadow: 0px 3px 10px rgba(110, 110, 110, 0.2);
+
+    &.is-narrow {
+      width: 360px;
+
+      .tui-tree-wrap {
+        overflow-y: scroll;
+        position: static;
+        height: 500px !important;
+      }
+    }
+
+    &.is-semi-narrow {
+      width: 480px;
+    }
+
+    &.is-semi-wide {
+      width: 700px;
+    }
+
+    &.is-wide {
+      width: 900px;
+    }
+
+    &.is-ultra-wide {
+      width: 1390px;
+      .table.row-type {
+        .tui-datepicker-input {
+          flex: none;
+        }
+      }
+    }
+  }
+
+  &-card-head {
+    padding: 0 0 0 20px;
+    border-radius: 0;
+    background-color: #099;
+  }
+
+  &-card-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 40px;
+    letter-spacing: -0.32px;
+    color: #FFF;
+  }
+
+  &-card-body {
+    min-height: 560px;
+    padding: 20px 20px 0;
+  }
+
+  &-card-foot {
+    padding: 20px 0 30px;
+    border-radius: 0;
+    border-top: 0;
+    background-color: #FFF;
+
+    &.is-center {
+      justify-content: center;
+    }
+  }
+
+  &-card-inner {
+    position: relative;
+    padding-left: 340px;
+  }
+
+  &-close {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    background: none !important;
+  }
+
+  &-btn {
+    width: 80px;
+    height: 34px;
+    border-radius: 3px;
+    border: 1px solid #717171;
+    font-size: 14px;
+    letter-spacing: -0.28px;
+    cursor: pointer;
+    color: #717171;
+    background-color: #FFF;
+    
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+
+    &.is-primary {
+      border-color: #099;
+      color: #FFF;
+      background-color: #099;
+    }
+  }
+
+  .emphasis {
+    display: block;
+    margin: 0;
+    padding: 4px 0 9px;
+    line-height: 1.4;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &-subtitle-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .tui-datepicker{
+    top: 100%;
+    right: 0;
+  }
+
+  .tui-datepicker-input {
+    flex: 1;
+  }
+
+  // .datepicker-range > span {
+  //   flex: 1;
+  // }
+
+  .tui-pagination {
+    margin: 24px 0 32px !important;
+  }
+}

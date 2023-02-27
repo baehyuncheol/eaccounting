@@ -1,0 +1,157 @@
+.datepicker-box {
+  margin-top: -1px;
+}
+
+.tui-datepicker {
+  z-index: 20;
+}
+
+.tui-datepicker-type-date {
+  width: 288px !important;
+}
+
+.tui-calendar {
+  width: 288px !important;
+  padding: 4px 4px 8px;
+  box-sizing: border-box;
+}
+
+.tui-calendar-header {
+  margin-bottom: 4px;
+  border-bottom: 0 !important;
+}
+
+.tui-calendar-header-inner {
+  height: 40px !important;
+  padding: 0 !important;
+}
+
+.tui-calendar-title {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 40px !important;
+}
+
+.tui-calendar-header-info {
+  display: none;
+}
+
+.tui-datepicker-input {
+  display: inline-flex !important;
+  position: relative;
+  width: 160px !important;
+  border: 0 !important;
+
+  .input {
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid #E6E6E6;
+    font-size: 14px;
+    caret-color: #099;
+    color: #222;
+
+    &:hover,
+    &:focus {
+      border-color: #099;
+
+      + .datepicker-icon {
+        background-position: 0 -100px;
+      }
+    }
+
+    &[disabled] {
+      border-color: #E6E6E6;
+      
+      + .datepicker-icon {
+        background-position: 0 -50px;
+      }
+    }
+  }
+}
+
+.tui-calendar-body th, 
+.tui-calendar-body td {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0;
+  border: 0;
+  font-size: 12px;
+  line-height: 40px;
+}
+
+.tui-calendar-body th {
+  font-weight: 500 !important;
+  color: #8E8E8E !important;
+  background-color: #FFF;
+
+  &.tui-sun {
+    color: #DA1E28 !important;
+  }
+}
+
+.tui-calendar-body td {
+  border-radius: 2px;
+  color: #151515 !important;
+
+  &.tui-calendar-today {
+    position: relative;
+    font-weight: 500;
+    color: #099 !important;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      margin-left: -2px;
+      background-color: #099;
+    }
+  }
+
+  &:hover {
+    background-color: #F7F7F7 !important;
+  }
+}
+
+.tui-datepicker .tui-is-selectable.tui-is-selected, 
+.tui-datepicker.tui-rangepicker .tui-is-selectable.tui-is-selected {
+  color: #FFF !important;
+  background-color: #099 !important;
+}
+
+.tui-calendar-btn {
+  width: 40px !important;
+  height: 40px !important;
+  background: url(../images/cal_btn.png) no-repeat;
+
+  &::after {
+    display: none;
+  }
+
+  &.tui-calendar-btn-next-month,
+  &.tui-calendar-btn-next-year {
+    background-position: 0 -40px;
+  }
+}
+
+.tui-calendar-month .tui-calendar-body {
+  width: 160px !important;
+}
+
+.datepicker-range {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  > span {
+    width: 16px;
+    text-align: center;
+  }
+}
+
+.tui-rangepicker {
+  top: 100%;
+  right: 0;
+}
