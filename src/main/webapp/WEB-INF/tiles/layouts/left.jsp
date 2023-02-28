@@ -74,7 +74,7 @@
         var leftHtml = "";
         for(var i=0; i<length; i++ ) {
             if (data[i].lev == 1) {
-                leftHtml += "<li class=\"lnb__item lnb__item" + data[i].iconCss + "\">";
+                leftHtml += "<li class=\"lnb__item lnb__item" + data[i].menuIconCss + "\">";
                 leftHtml += "<a href=\"#\" id=\"left_" + data[i].menuId + "\" onclick=\"getSubmenu('" + data[i].menuId + "','2');\">" + data[i].menuName + "</a>";
             } else if( data[i].lev == 2 ){
                 leftHtml += "<li class=\"lnb__item\">";

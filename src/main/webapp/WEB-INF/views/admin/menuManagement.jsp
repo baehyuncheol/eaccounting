@@ -180,7 +180,7 @@
     // 메뉴 리스트 조회
     function getMenuList(items){
         $.ajax({
-            url: "/config/menus",
+            url: "/admin/menus",
             type: 'GET',
             async: false
         }).done(function (result) {
@@ -217,7 +217,7 @@
     // 메뉴리스트 조회
     getMenuList(menuList);
     // 코드리스트 조회
-    getCodeList(codeList);
+    //getCodeList(codeList);
 
     const menuGrid = new tui.Grid({
         el: document.getElementById('menuGrid'), // 그리드 id
@@ -364,7 +364,7 @@
     function loadTreeGrid() {
         let params = {};
         $.ajax({
-            url: "/getMenu",
+            url: "/admin/getMenu",
             type: 'GET',
             async: false,
             data: params

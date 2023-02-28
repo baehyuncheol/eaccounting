@@ -37,6 +37,7 @@
           ,m.menu_id_up
           ,m.menu_fullcode
           ,m.menu_url
+          ,m.menu_iconCss
           ,m.sort_seq
           ,case when a.menu_id != '' then 'Y' else 'N' end as author_yn
         from tb_menu m
@@ -52,6 +53,7 @@
           ,m.menu_id_up
           ,m.menu_fullcode
           ,m.menu_url
+          ,m.menu_iconCss
           ,case when m.lev = 1 then
             (
                 select top(1) b.menu_id from menu_tree b
@@ -76,6 +78,7 @@
       ,a.menu_id_up
       ,a.menu_fullcode
       ,a.menu_url
+      ,a.menu_iconCss
       ,a.author_yn
       ,a.sub_author_menu_id
       ,a.sort_seq
@@ -189,13 +192,13 @@
            , a.menu_url
            , a.sort_seq
            , a.usage_ind
-           , a.create_user
+           /*, a.create_user
            , a.create_datetime
            , a.update_user
-           , a.update_datetime
+           , a.update_datetime*/
         FROM tb_menu a
              LEFT OUTER JOIN tb_menu b
              ON a.menu_id_up = b.menu_id
-       ORDER BY a.sort_seq
+       ORDER BY menu_level, a.sort_seq
     </select>
 </mapper>
