@@ -1,6 +1,6 @@
 package com.web.eaccounting.front.paydoc.repository;
 
-import com.web.eaccounting.front.common.entity.AppcEntity;
+import com.web.eaccounting.core.entity.AppcEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

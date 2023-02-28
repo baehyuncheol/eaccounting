@@ -2,8 +2,8 @@ package com.web.eaccounting.front.approvalDoc.web;
 
 
 import com.web.eaccounting.front.approvalDoc.service.ApprovalDocService;
-import com.web.eaccounting.front.common.dto.CodeDto;
-import com.web.eaccounting.front.common.entity.CodeEntity;
+import com.web.eaccounting.core.dto.CodeDto;
+import com.web.eaccounting.core.entity.CodeEntity;
 import com.web.eaccounting.front.paydoc.service.PayDocService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -72,6 +72,15 @@ public class ApprovalDocController {
         List<CodeEntity> codeDepthOneList = payDocService.getCommonCode("1412");
         modelAndView.addObject("codeDepthOneList", codeDepthOneList);
         modelAndView.setViewName("default:approvalDoc/paymentEndDoc");
+
+        return modelAndView;
+    }
+
+    @GetMapping("/test")
+    public ModelAndView test(ModelAndView modelAndView, HttpServletRequest req) {
+        List<CodeEntity> codeDepthOneList = payDocService.getCommonCode("1412");
+        modelAndView.addObject("codeDepthOneList", codeDepthOneList);
+        modelAndView.setViewName("default:template/AAtype");
 
         return modelAndView;
     }

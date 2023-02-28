@@ -3,7 +3,7 @@
 
 <mapper namespace="com.web.eaccounting.front.menu.mapper.MenuMapper">
 
-    <select id="getMenuList" resultType="com.web.eaccounting.front.common.dto.MenuDto">;
+    <select id="getMenuList" resultType="com.web.eaccounting.core.dto.MenuDto">;
 
     <![CDATA[
     with menu_user as
@@ -85,7 +85,7 @@
     ]]>
     </select>
 
-    <select id="getLeftSubMenuData" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+    <select id="getLeftSubMenuData" resultType="com.web.eaccounting.core.dto.MenuDto">
     <![CDATA[
     with menu_user as
     (
@@ -163,7 +163,7 @@
     ]]>
     </select>
 
-    <select id="selectByMenu" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+    <select id="selectByMenu" resultType="com.web.eaccounting.core.dto.MenuDto">
         /*SELECT '000' AS menu_id
         , '메뉴' AS menu_name
         , '' AS menu_id_up
@@ -179,7 +179,7 @@
 
     </select>
 
-    <select id="selectMenus" resultType="com.web.eaccounting.front.common.dto.MenuDto">
+    <select id="selectMenus" resultType="com.web.eaccounting.core.dto.MenuDto">
       SELECT a.menu_id
            , a.menu_name
            , a.menu_id_up

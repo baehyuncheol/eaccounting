@@ -1,9 +1,7 @@
 package com.web.eaccounting.front.login.repository;
 
-import com.web.eaccounting.front.common.dto.LoginDto;
-import com.web.eaccounting.front.common.entity.LoginEntity;
+import com.web.eaccounting.core.entity.LoginEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.NoRepositoryBean;
 
 
 public interface LoginRepository extends JpaRepository<LoginEntity, String>{

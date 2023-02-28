@@ -1,7 +1,7 @@
 package com.web.eaccounting.front.paydoc.repository;
 
-import com.web.eaccounting.front.common.entity.CodeEntity;
-import com.web.eaccounting.front.common.entity.CodePK;
+import com.web.eaccounting.core.entity.CodeEntity;
+import com.web.eaccounting.core.entity.CodePK;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

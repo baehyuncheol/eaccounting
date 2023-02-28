@@ -1,9 +1,9 @@
 package com.web.eaccounting.front.login.service;
 
 
-import com.web.eaccounting.front.common.CookieManager;
+import com.web.eaccounting.core.common.CookieManager;
 import com.web.eaccounting.core.utils.SessionUtil;
-import com.web.eaccounting.front.common.dto.LoginDto;
+import com.web.eaccounting.core.dto.LoginDto;
 import com.web.eaccounting.front.login.mapper.LoginMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

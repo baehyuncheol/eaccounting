@@ -2,9 +2,9 @@ package com.web.eaccounting.front.settlement.mapper;
 
 
 import com.web.eaccounting.core.mybatis.type.CamelCaseMap;
-import com.web.eaccounting.front.common.dto.AppcLineitemJDto;
-import com.web.eaccounting.front.common.dto.CatsTmpAcquireDto;
-import com.web.eaccounting.front.common.entity.BudgetdepartmentsEntity;
+import com.web.eaccounting.core.dto.AppcLineitemJDto;
+import com.web.eaccounting.core.dto.CatsTmpAcquireDto;
+import com.web.eaccounting.core.entity.BudgetdepartmentsEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

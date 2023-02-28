@@ -1,7 +1,7 @@
 package com.web.eaccounting.front.menu.web;
 
-import com.web.eaccounting.front.common.dto.LoginDto;
-import com.web.eaccounting.front.common.dto.MenuDto;
+import com.web.eaccounting.core.dto.LoginDto;
+import com.web.eaccounting.core.dto.MenuDto;
 import com.web.eaccounting.front.menu.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

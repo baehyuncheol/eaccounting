@@ -3,7 +3,7 @@
 
 <mapper namespace="com.web.eaccounting.front.login.mapper.LoginMapper">
 
-    <select id="findByEmplNo" resultType="com.web.eaccounting.front.common.dto.LoginDto">;
+    <select id="findByEmplNo" resultType="com.web.eaccounting.core.dto.LoginDto">;
         <![CDATA[
 
         with menu_user as

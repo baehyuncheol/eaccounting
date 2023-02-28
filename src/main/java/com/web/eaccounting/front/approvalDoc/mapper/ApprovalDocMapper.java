@@ -1,9 +1,9 @@
 package com.web.eaccounting.front.approvalDoc.mapper;
 
 
-import com.web.eaccounting.front.common.dto.AppcDto;
+import com.web.eaccounting.core.dto.AppcDto;
 import com.web.eaccounting.core.mybatis.type.CamelCaseMap;
-import com.web.eaccounting.front.common.dto.CodeDto;
+import com.web.eaccounting.core.dto.CodeDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;

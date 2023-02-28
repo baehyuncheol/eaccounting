@@ -1,6 +1,6 @@
 package com.web.eaccounting.front.paydoc.service;
 
-import com.web.eaccounting.front.common.entity.CodeEntity;
+import com.web.eaccounting.core.entity.CodeEntity;
 import com.web.eaccounting.front.paydoc.repository.PayDocTbAppcRepository;
 import com.web.eaccounting.front.paydoc.repository.PayDocTbCodeRepository;
 import lombok.extern.slf4j.Slf4j;

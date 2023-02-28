@@ -4,7 +4,7 @@ package com.web.eaccounting.front.approvalDoc.service;
 import com.web.eaccounting.core.mybatis.type.CamelCaseMap;
 import com.web.eaccounting.core.utils.StringUtil;
 import com.web.eaccounting.front.approvalDoc.mapper.ApprovalDocMapper;
-import com.web.eaccounting.front.common.dto.CodeDto;
+import com.web.eaccounting.core.dto.CodeDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
