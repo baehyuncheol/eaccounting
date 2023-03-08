@@ -1,8 +1,8 @@
 package com.web.eaccounting.front.admin.web;
 
 
+import com.web.eaccounting.core.dto.MenuDto;
 import com.web.eaccounting.front.admin.service.AdminService;
-import com.web.eaccounting.front.common.dto.MenuDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

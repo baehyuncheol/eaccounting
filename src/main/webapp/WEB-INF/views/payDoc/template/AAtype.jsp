@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<section class="contents__body">
 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
     <ul>
         <li><a href="/">HOME</a></li>
@@ -150,23 +149,17 @@
                     </div>
                 </div>
             </td>
-            <th>예산부서</th>
+            <th><i class="essential-icon" aria-label="필수"></i>증빙일(계산서일)</th>
             <td>
-                <div class="field">
-                    <div class="control">
-                        <div class="select">
-                            <select name="budgetDept" required>
-                                <c:forEach items="${budgetList}" var="list">
-                                    <option value="${list.code}"<c:if test="${list.code eq orgbudgetmap.budgetCode}"> selected</c:if> >${list.name}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
+                <div class="tui-datepicker-input">
+                    <input type="text" id="proofDate" name="proofDate" class="input" aria-label="달력">
+                    <i class="datepicker-icon" aria-hidden="true"></i>
                 </div>
+                <div id="dProofDate" class="datepicker-box"></div>
             </td>
         </tr>
         <tr>
-            <th><i class="essential-icon" aria-label="필수"></i>증빙일(계산서일)</th>
+            <th></i>전기일</th>
             <td>
                 <div class="tui-datepicker-input">
                     <input type="text" id="evdDate" name="evdDate" class="input" aria-label="달력">
@@ -174,7 +167,7 @@
                 </div>
                 <div id="dEvdDate" class="datepicker-box"></div>
             </td>
-            <th><i class="essential-icon" aria-label="필수"></i>전기일</th>
+            <th><i class="essential-icon" aria-label="필수"></i>지급일</th>
             <td>
                 <div class="tui-datepicker-input">
                     <input type="text" id="slipPostingDate" name="slipPostingDate" class="input" aria-label="달력">
@@ -185,22 +178,21 @@
         </tr>
 
         <tr>
-            <th>지급일</th>
-            <td>
-                <div class="tui-datepicker-input">
-                    <input type="text" id="expireDate" name="expireDate" class="input" aria-label="달력">
-                    <i class="datepicker-icon" aria-hidden="true"></i>
-                </div>
-                <em class="emphasis">정기지급일 : 매월 15일, 말일</em>
-                <div id="dExpireDate" class="datepicker-box"></div>
-            </td>
-            <th><i class="essential-icon" aria-label="필수"></i>적요</th>
+            <th></i>적요</th>
             <td>
                 <div class="field">
                     <div class="control">
                         <input class="input" type="text" name="slipHeader" />
                     </div>
                 </div>
+            </td>
+            <th>유효기간</th>
+            <td>
+                <div class="tui-datepicker-input">
+                    <input type="text" id="expireDate" name="expireDate" class="input" aria-label="달력">
+                    <i class="datepicker-icon" aria-hidden="true"></i>
+                </div>
+                <div id="dExpireDate" class="datepicker-box"></div>
             </td>
         </tr>
         <tr>
@@ -228,7 +220,7 @@
                     -->
                 </div>
             </td>
-            <th><i class="essential-icon" aria-label="필수"></i>전표번호</th>
+            <th></i>전표번호</th>
             <td>
                 <div class="field">
                     <div class="control">
@@ -237,6 +229,19 @@
                 </div>
             </td>
         </tr>
+        <tr>
+        <th>상세내역</th>
+        <td>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" name="details" placeholder="Ex) 임차료, 선지급이자 등" />
+                </div>
+            </div>
+        </td>
+            <th></th>
+            <td></td>
+        </tr>
+
         </tbody>
     </table>
 </div>
@@ -256,10 +261,10 @@
         <colgroup>
             <col width="40px">
             <col width="100px">
-            <col width="200px">
+            <col width="250px">
             <col width="300px">
-            <col width="150px">
-            <col width="150px">
+            <col width="200px">
+            <col width="200px">
             <col width="*">
         </colgroup>
         <thead>
@@ -306,8 +311,9 @@
         </div>
     </div>
 </div>
-</section>
 <script type="text/javascript">
+
+
     var datepicker1 = new tui.DatePicker('#dEvdDate', {
         language: 'ko',
         date: new Date(),
@@ -335,6 +341,15 @@
         }
     });
 
+    var datepicker4 = new tui.DatePicker('#dProofDate', {
+        language: 'ko',
+        date: new Date(),
+        input: {
+            element: '#proofDate',
+            format: 'yyyy-MM-dd',
+        }
+    });
+
     var exdate = new Date(datepicker1.getDate());
     exdate.setDate(exdate.getDate() + 30);
 
@@ -347,40 +362,161 @@
         datepicker3.setDate(new Date(expireDate));
     });
 
-
-
-    /* 기존지출결의서 조회*/
-    function fn_appcHdAReq(paydocNo)
+    function fn_journalAdd(obj)
     {
-        var params = {
-            "paydocNo"		: paydocNo
-        };
+        <c:choose>
+        <c:when test="${docType eq 'A'}"> //일반비용
+        var budgetDeptCode = $("select[name=budgetDept] option:selected").val();
+        var budgetDeptName = $("select[name=budgetDept] option:selected").text();
+        </c:when>
+        <c:when test="${docType eq 'AA'}"> //일반비용기타
+        var budgetDeptCode = $("select[name=budgetDept] option:selected").val();
+        var budgetDeptName = $("select[name=budgetDept] option:selected").text();
+        </c:when>
+        <c:when test="${docType eq 'G'}"> //원천세
+        var budgetDeptCode = $("select[name=budgetDept] option:selected").val();
+        var budgetDeptName = $("select[name=budgetDept] option:selected").text();
+        </c:when>
+        <c:when test="${docType eq 'H'}"> //원천세 기타
+        var budgetDeptCode = $("select[name=budgetDept] option:selected").val();
+        var budgetDeptName = $("select[name=budgetDept] option:selected").text();
+        </c:when>
+        <c:when test="${docType eq 'I'}"> //선급
+        var budgetDeptCode = "7000";
+        var budgetDeptName = "㈜GS공통";
+        </c:when>
+        <c:when test="${docType eq 'K'}">
+        var budgetDeptCode = "7000";
+        var budgetDeptName = "㈜GS공통";
+        </c:when>
+        <c:when test="${docType eq 'N'}">
+        var budgetDeptCode = "7000";
+        var budgetDeptName = "㈜GS공통";
+        </c:when>
+        <c:when test="${docType eq 'O'}">
+        var budgetDeptCode = "7000";
+        var budgetDeptName = "㈜GS공통";
+        </c:when>
+        <c:when test="${docType eq 'P'}"> //투자
+        var budgetDeptCode = "7000";
+        var budgetDeptName = "㈜GS공통";
+        </c:when>
+        <c:otherwise>
+        var budgetDeptCode = "${orgbudgetmap.budgetCode}";
+        var budgetDeptName = "${orgbudgetmap.budgetCodeName}";
+        </c:otherwise>
+        </c:choose>
 
-        $.ajax({
-            async: false,
-            url: '/paydoc/appcHdAAReq',
-            type: 'POST',
-            async: false,
-            data: params,
-            beforeSend: function(){
-                $('#loading').show();
-            },
-            complete:function(data){
-                $('#loading').hide();
-            }
-        }).done(function (result) {
-            //결과세팅
-            setResultValues(result);
-        }).fail(function(xhr, textStatus, errorThrown) {
-            if(xhr.status =='403'){
-                alert("해당 기능에 대한 권한이 없습니다.");
-            } else if (xhr.status == '501') {
-                alert("session정보가 없습니다. 로그인페이지로 이동합니다.");
-                window.location.href = "/loginView";
-            } else if (xhr.status == '500') {
-                alert("에러["+textStatus+"]" + errorThrown );
-            }
-        });
+
+
+
+        var generateHtml = "";
+        generateHtml += "<tr>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"control\">";
+        generateHtml += "           <label class=\"checkbox\">";
+        generateHtml += "           <input name=\"journalCheck\" type=\"checkbox\">";
+        generateHtml += "           </label>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"control\">";
+        generateHtml += "           <div class=\"select\">";
+        generateHtml += "               <select name=\"drCrInd\" required>";
+        if(obj.children().length < 1){
+            generateHtml += "                   <option value=\"S\" selected>차</option>";
+            generateHtml += "                   <option value=\"H\">대</option>";
+        }else{
+            generateHtml += "                   <option value=\"S\">차</option>";
+            generateHtml += "                   <option value=\"H\" selected>대</option>";
+        }
+        generateHtml += "               </select>";
+        generateHtml += "           </div>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"field has-addons\">";
+        generateHtml += "           <div class=\"control is-expanded\">";
+        generateHtml += "               <input class=\"input\" type=\"text\" name=\"acctCodeName\" onKeyDown=\"fn_accntKeyDown(this);\" value='<c:out value="${account.acctName}"/>' readonly=\"readonly\"/>";
+        generateHtml += "               <input class=\"input\" type=\"hidden\" name=\"acctCode\" value='<c:out value="${account.acctCode}"/>' />";
+        generateHtml += "           </div>";
+        generateHtml += "           <div class=\"control\">";
+        generateHtml += "               <button name=\"btnAccountCode\" class=\"icon-btn icon-btn--search\" type=\"button\" onclick=\"fn_AccountDivCreate(this);\">검색</button>";
+        generateHtml += "           </div>";
+        generateHtml += "           <div class=\"control\">";
+        generateHtml += "               <button name=\"btnBudgetDeptCodeDelete\" class=\"icon-btn icon-btn--delete\" type=\"button\" onclick=\"fn_AccountDivDelete(this);\">삭제</button>";
+        generateHtml += "           </div>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"field has-addons\">";
+        generateHtml += "           <div class=\"control is-expanded\">";
+        generateHtml += "               <input class=\"input\" type=\"text\" name=\"budgetCodeName\" onKeyDown=\"fn_budgetKeyDown(this);\" value='"+ budgetDeptName +"' readonly=\"readonly\"/>";
+        generateHtml += "               <input class=\"input\" type=\"hidden\" name=\"budgetCode\" value='"+ budgetDeptCode +"' />";
+        generateHtml += "           </div>";
+        generateHtml += "           <div class=\"control\">";
+        generateHtml += "               <button name=\"btnBudgetDeptCode\" class=\"icon-btn icon-btn--search\" type=\"button\" onclick=\"fn_BudgetDeptDivCreate(this);\">검색</button>";
+        generateHtml += "           </div>";
+        generateHtml += "           <div class=\"control\">";
+        generateHtml += "               <button name=\"btnBudgetDeptCodeDelete\" class=\"icon-btn icon-btn--delete\" type=\"button\" onclick=\"fn_BudgetDeptValueDelete(this);\">삭제</button>";
+        generateHtml += "           </div>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"control\">";
+        generateHtml += "           <input class=\"input is-align-right\" inputmode=\"numeric\"name=\"slipCurrencyAmt\" value=\"\"/>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"control\">";
+        generateHtml += "           <input class=\"input is-align-right\" inputmode=\"numeric\" name=\"localCurrencyAmt\" value=\"\"/>";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "    <td>";
+        generateHtml += "       <div class=\"control\">";
+        generateHtml += "           <input class=\"input\" type=\"text\" name=\"slipText\" />";
+        generateHtml += "       </div>";
+        generateHtml += "    </td>";
+        generateHtml += "</tr>";
+
+        obj.append(generateHtml);
     }
 
+    //체크된 분개장 삭제
+    function fn_journalDel(obj)
+    {
+        var id = obj[0].id;
+        $("#"+ id+" input:checkbox[name=journalCheck]:checked").each(function() {
+            var tr = $(this).parent().parent().parent().parent();
+            tr.remove();
+        });
+
+        if( $("#journal tr").length == 0 )
+        {
+            fn_inputselectControl(false);
+            if("${cat.docType}" == "G" || "${cat.docType}" == "H") {
+                $('select[name=whCodeNRate] option').attr('disabled', true);
+            }
+            if("${cat.docType}" == "R") {
+                if($("select[name=evdGb]").val() == '01'){
+                    $("#taxbillSearch").attr('disabled', false);
+                }
+            }else {
+                $("#taxbillSearch").attr('disabled', false);
+                $("#taxbillSearchOtype").attr('disabled', false);
+            }
+            if("${cat.docType}" == "A" || "${cat.docType}" == "AA"
+                || "${cat.docType}" == "I" || "${cat.docType}" == "N" || "${cat.docType}" == "O" || "${cat.docType}" == "R"){
+                if($("input[name=compayName]").val() != ""){
+                    $("input[name=supplyAmt]").attr('readonly', true);
+                    $("input[name=taxAmt]").attr('readonly', true);
+                    $("input[name=payAmt]").attr('readonly', true);
+                } else {
+                    $("input[name=supplyAmt]").attr('readonly', false);
+                    $("input[name=taxAmt]").attr('readonly', false);
+                    $("input[name=payAmt]").attr('readonly', false);
+                }
+            }
+        }
+    }
 </script>

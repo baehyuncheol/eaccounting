@@ -1,4 +1,4 @@
-package com.web.eaccounting.front.paydoc.repository;
+package com.web.eaccounting.front.payDoc.repository;
 
 import com.web.eaccounting.core.entity.CodeEntity;
 import com.web.eaccounting.core.entity.CodePK;

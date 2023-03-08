@@ -4,7 +4,7 @@ package com.web.eaccounting.front.approvalDoc.web;
 import com.web.eaccounting.front.approvalDoc.service.ApprovalDocService;
 import com.web.eaccounting.core.dto.CodeDto;
 import com.web.eaccounting.core.entity.CodeEntity;
-import com.web.eaccounting.front.paydoc.service.PayDocService;
+import com.web.eaccounting.front.payDoc.service.PayDocService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class ApprovalDocController {
 
     private final PayDocService payDocService;
 
-    @GetMapping(value = "/list")
+    @GetMapping("/list")
     public Map<String, Object> getApprovalData(@RequestParam Map<String, Object> param){
         return approvalDocService.getApprovalData(param);
     }
@@ -72,15 +72,6 @@ public class ApprovalDocController {
         List<CodeEntity> codeDepthOneList = payDocService.getCommonCode("1412");
         modelAndView.addObject("codeDepthOneList", codeDepthOneList);
         modelAndView.setViewName("default:approvalDoc/paymentEndDoc");
-
-        return modelAndView;
-    }
-
-    @GetMapping("/test")
-    public ModelAndView test(ModelAndView modelAndView, HttpServletRequest req) {
-        List<CodeEntity> codeDepthOneList = payDocService.getCommonCode("1412");
-        modelAndView.addObject("codeDepthOneList", codeDepthOneList);
-        modelAndView.setViewName("default:template/AAtype");
 
         return modelAndView;
     }

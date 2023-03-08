@@ -1,8 +1,8 @@
-package com.web.eaccounting.front.paydoc.service;
+package com.web.eaccounting.front.payDoc.service;
 
 import com.web.eaccounting.core.entity.CodeEntity;
-import com.web.eaccounting.front.paydoc.repository.PayDocTbAppcRepository;
-import com.web.eaccounting.front.paydoc.repository.PayDocTbCodeRepository;
+import com.web.eaccounting.front.payDoc.repository.PayDocTbAppcRepository;
+import com.web.eaccounting.front.payDoc.repository.PayDocTbCodeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

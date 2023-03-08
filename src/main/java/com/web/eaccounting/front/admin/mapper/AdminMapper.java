@@ -1,6 +1,6 @@
 package com.web.eaccounting.front.admin.mapper;
 
-import com.web.eaccounting.front.common.dto.MenuDto;
+import com.web.eaccounting.core.dto.MenuDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
